@@ -13,3 +13,7 @@ cols_to_fill = [
 
 original_index = df_athens.index
 original_order = df_athens.copy()
+
+df_athens = df_athens.sort_values(['station_name', 'Date'])
+df_athens[cols_to_fill] = df_athens.groupby('station_name')[cols_to_fill].fillna(method='ffill')
+df_athens = df_athens.reindex(original_index)
