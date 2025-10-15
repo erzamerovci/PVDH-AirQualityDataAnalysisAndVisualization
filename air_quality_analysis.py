@@ -17,3 +17,11 @@ original_order = df_athens.copy()
 df_athens = df_athens.sort_values(['station_name', 'Date'])
 df_athens[cols_to_fill] = df_athens.groupby('station_name')[cols_to_fill].fillna(method='ffill')
 df_athens = df_athens.reindex(original_index)
+
+df_athens_sorted = df_athens.sort_values(['station_name', 'Date']).copy()
+df_athens_sorted['Temp'] = (
+    df_athens_sorted
+    .groupby('station_name')['Temp']
+    .transform(lambda x: x.interpolate(method='linear', limit_direction='both'))
+)
+df_athens = df_athens_sorted.reindex(original_index)
