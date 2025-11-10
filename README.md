@@ -35,6 +35,44 @@ Në këtë fazë, qëllimi është përgatitja e të dhënave në mënyrë që t
 
 *Rezultati përfundimtar është një dataset i  pastër dhe i gatshëm për përdorim në fazën e dytë të projektit.*
 
+Hapat e fazes se pare:
+
+1. Identifikimi i Tipeve të të Dhënave
+
+U analizua struktura e dataset-it për të përcaktuar llojin e të dhënave për secilën kolonë.
+image.png
+
+2. Zbulimi i Vlerave Mungese (NULL)
+
+Për çdo kolonë u llogarit përqindja e vlerave mungese për të vendosur metodën e duhur të pastrimit.
+image.png
+
+3. Trajtimi i Vlerave Mungese
+
+U përdorën disa teknika për eliminimin e vlerave NULL:
+Forward filling
+Interpolim i bazuar në korelacion
+Mesatarja ndërmjet vlerës paraprake dhe asaj pasuese
+
+Pas zbatimit të këtyre metodave, dataset-i nuk përmban më asnjë vlerë "NULL".
+image.png
+
+4. Diskretizimi i Kolonave PM2.5 dhe PM10
+
+Janë krijuar dy kolona të reja që kategorizojnë nivelin e ndotjes së ajrit bazuar në vlerat e PM2.5 dhe PM10.
+image.png
+
+5. Binarizimi i Temperaturës
+
+Është krijuar kolona Temp. binary:
+0 → temperaturë nën 15°C
+1 → temperaturë mbi 15°C
+
+Kjo thjeshton analizat që kërkojnë vlera të kategorizuara.
+image.png
+
+
+
 ## Authors
 - *Erza Merovci*
 - *Fortesa Cena*
