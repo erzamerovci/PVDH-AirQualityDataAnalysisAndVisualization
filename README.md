@@ -57,6 +57,7 @@ Interpolim i bazuar në korelacion
 Mesatarja ndërmjet vlerës paraprake dhe asaj pasuese
 
 Pas zbatimit të këtyre metodave, dataset-i nuk përmban më asnjë vlerë "NULL".
+
 <img width="312" height="467" alt="image" src="https://github.com/user-attachments/assets/dcfa5955-08e9-4153-bb76-d3e933a0feb2" />
 
 
