@@ -40,7 +40,8 @@ Hapat e fazes se pare:
 1. Identifikimi i Tipeve të të Dhënave
 
 U analizua struktura e dataset-it për të përcaktuar llojin e të dhënave për secilën kolonë.
-image.png
+<img width="452" height="549" alt="image" src="https://github.com/user-attachments/assets/b34be36b-948f-46a7-b9f0-5c0c4f1877a1" />
+
 
 2. Zbulimi i Vlerave Mungese (NULL)
 
