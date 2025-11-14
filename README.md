@@ -46,7 +46,8 @@ U analizua struktura e dataset-it për të përcaktuar llojin e të dhënave pë
 2. Zbulimi i Vlerave Mungese (NULL)
 
 Për çdo kolonë u llogarit përqindja e vlerave mungese për të vendosur metodën e duhur të pastrimit.
-image.png
+<img width="434" height="477" alt="image" src="https://github.com/user-attachments/assets/92868d13-ea86-46a8-a241-4a664af5f26e" />
+
 
 3. Trajtimi i Vlerave Mungese
 
@@ -56,12 +57,14 @@ Interpolim i bazuar në korelacion
 Mesatarja ndërmjet vlerës paraprake dhe asaj pasuese
 
 Pas zbatimit të këtyre metodave, dataset-i nuk përmban më asnjë vlerë "NULL".
-image.png
+<img width="312" height="467" alt="image" src="https://github.com/user-attachments/assets/dcfa5955-08e9-4153-bb76-d3e933a0feb2" />
+
 
 4. Diskretizimi i Kolonave PM2.5 dhe PM10
 
 Janë krijuar dy kolona të reja që kategorizojnë nivelin e ndotjes së ajrit bazuar në vlerat e PM2.5 dhe PM10.
-image.png
+<img width="281" height="593" alt="image" src="https://github.com/user-attachments/assets/55917fc4-6632-497f-ba2c-a53ab1db519a" />
+
 
 5. Binarizimi i Temperaturës
 
@@ -70,7 +73,8 @@ image.png
 1 → temperaturë mbi 15°C
 
 Kjo thjeshton analizat që kërkojnë vlera të kategorizuara.
-image.png
+
+<img width="186" height="640" alt="image" src="https://github.com/user-attachments/assets/3bbc1bf8-c0fc-4a72-8e27-380eee45f831" />
 
 
 
