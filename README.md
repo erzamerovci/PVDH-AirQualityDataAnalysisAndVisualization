@@ -77,6 +77,87 @@ Kjo thjeshton analizat që kërkojnë vlera të kategorizuara.
 
 <img width="186" height="640" alt="image" src="https://github.com/user-attachments/assets/3bbc1bf8-c0fc-4a72-8e27-380eee45f831" />
 
+## Faza e dytë – Detektimi i përjashtuesve dhe mënjanimi
+
+Qëllimi i kësaj faze është identifikimi i vlerave jonormale (outliers), vlerësimi i ndikimit të tyre në cilësinë e të dhënave, si dhe mënjanimi i vlerave të pasakta që mund të deformojnë analizat e mëvonshme. Janë përdorur teknika statistikore si z-residuals dhe identifikimi i pragjeve për të shënuar dhe trajtuar përjashtuesit në mënyrë të kontrolluar.
+
+1. Eksplorimi fillestar i të dhënave
+
+Para detektimit të përjashtuesve, u krye një inspektim fillestar i të dhënave:
+
+- U vëzhguan vlerat ekstreme të ndotësve
+
+- U kontrollua konsistenca e vlerave pas pastrimit të Fazës I
+
+- U identifikuan ditët me sjellje të dyshimtë që kërkonin hetim të mëtejshëm
+
+- U vlerësua rregullsia e serisë kohore për secilin ndotës
+
+img
+
+Rezultati:
+Ky hap ndihmoi në identifikimin e pikave problematike që duhej analizuar më thellë me metoda statistike.
+
+2. Llogaritja e Z-Residuals për identifikimin e përjashtuesve
+
+Për secilin ndotës (PM10, PM2.5, NO2, O3) u llogaritën z-residuals, të cilat matin devijimin e vlerës nga sjellja e pritur statistikore.
+
+- Vlerat shumë të mëdha → rritje jonormale
+
+- Vlerat shumë të ulëta → rënie jonormale
+
+Shërbejnë si bazë për detektimin e vlerave të dyshimta
+
+<img width="450" alt="image" src="PUT_IMAGE_LINK_HERE" />
+
+Rezultati:
+Ditët me devijime ekstreme identifikohen qartë dhe kategorizohen si përjashtues të mundshëm.
+
+3. Vendosja e pragjeve (thresholds) dhe shënimi i përjashtuesve
+
+- U aplikua metoda two-sided thresholding, ku për çdo ndotës definohen kufij statistikorë:
+
+- Vlerat jashtë intervalit të lejuar shënohen automatikisht si përjashtues
+
+- Janë krijuar kolonat _outlier_two_sided për çdo ndotës
+
+- Secila vlerë etiketohet True (përjashtues) ose False (normale)
+
+img
+
+Rezultati:
+Dataset-i është pasuruar me një shtresë të re analitike që shënjon qartë vlerat jonormale.
+
+4. Analiza e shpërndarjes së përjashtuesve
+
+- Është analizuar sasia dhe shpërndarja e përjashtuesve në nivel ndotësi dhe stacioni:
+
+- Numri i përjashtuesve për çdo ndotës
+
+- Identifikimi i ditëve me devijime të shpeshta
+
+Krahasimi i stacioneve për të parë cilat kanë më shumë vlera jonormale
+
+<img width="420" alt="image" src="PUT_IMAGE_LINK_HERE" />
+
+Rezultati:
+U identifikuan stacionet dhe ndotësit me sjellje të paqëndrueshme, duke lejuar fokusim në mënjanimin e vlerave jo të sakta.
+
+5. Mënjanimi i zbulimeve jo të sakta
+
+- Bazuar në përjashtuesit e identifikuar:
+
+- U shqyrtuan ditët me vlera të dyshimta
+
+- U larguan vlerat e pasakta që komprometonin analizën
+
+Dataset-i u ristrukturua për të ruajtur integritetin e tij statistikor
+
+<img width="420" alt="image" src="PUT_IMAGE_LINK_HERE" />
+
+Rezultati:
+Dataset-i është më i pastër, i qëndrueshëm dhe i gatshëm për fazën e vizualizimit (Faza III).
+
 
 
 ## Authors
