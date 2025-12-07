@@ -93,10 +93,6 @@ Para detektimit të përjashtuesve, u krye një inspektim fillestar i të dhëna
 
 - U vlerësua rregullsia e serisë kohore për secilin ndotës
 
-img
-
-Rezultati:
-Ky hap ndihmoi në identifikimin e pikave problematike që duhej analizuar më thellë me metoda statistike.
 
 2. Llogaritja e Z-Residuals për identifikimin e përjashtuesve
 
@@ -108,12 +104,10 @@ Për secilin ndotës (PM10, PM2.5, NO2, O3) u llogaritën z-residuals, të cilat
 
 Shërbejnë si bazë për detektimin e vlerave të dyshimta
 
-<img width="450" alt="image" src="PUT_IMAGE_LINK_HERE" />
-
 Rezultati:
 Ditët me devijime ekstreme identifikohen qartë dhe kategorizohen si përjashtues të mundshëm.
 
-3. Vendosja e pragjeve (thresholds) dhe shënimi i përjashtuesve
+3. Vendosja e thresholds dhe shënimi i përjashtuesve
 
 - U aplikua metoda two-sided thresholding, ku për çdo ndotës definohen kufij statistikorë:
 
@@ -123,10 +117,6 @@ Ditët me devijime ekstreme identifikohen qartë dhe kategorizohen si përjashtu
 
 - Secila vlerë etiketohet True (përjashtues) ose False (normale)
 
-img
-
-Rezultati:
-Dataset-i është pasuruar me një shtresë të re analitike që shënjon qartë vlerat jonormale.
 
 4. Analiza e shpërndarjes së përjashtuesve
 
@@ -138,14 +128,12 @@ Dataset-i është pasuruar me një shtresë të re analitike që shënjon qartë
 
 Krahasimi i stacioneve për të parë cilat kanë më shumë vlera jonormale
 
-<img width="420" alt="image" src="PUT_IMAGE_LINK_HERE" />
+<img width="1591" height="663" alt="image" src="https://github.com/user-attachments/assets/80f1a060-6c5d-4910-acca-94c51bde47bd" />
 
-Rezultati:
-U identifikuan stacionet dhe ndotësit me sjellje të paqëndrueshme, duke lejuar fokusim në mënjanimin e vlerave jo të sakta.
 
 5. Mënjanimi i zbulimeve jo të sakta
 
-- Bazuar në përjashtuesit e identifikuar:
+Bazuar në përjashtuesit e identifikuar:
 
 - U shqyrtuan ditët me vlera të dyshimta
 
@@ -153,10 +141,14 @@ U identifikuan stacionet dhe ndotësit me sjellje të paqëndrueshme, duke lejua
 
 Dataset-i u ristrukturua për të ruajtur integritetin e tij statistikor
 
-<img width="420" alt="image" src="PUT_IMAGE_LINK_HERE" />
+<img width="591" height="484" alt="image" src="https://github.com/user-attachments/assets/9410f54a-08e7-4a2d-96c8-53afdcebc2e3" />
+
+<img width="1036" height="727" alt="image" src="https://github.com/user-attachments/assets/ba4f64a3-08b5-480b-a435-5a1be3a3dedb" />
+
+
 
 Rezultati:
-Dataset-i është më i pastër, i qëndrueshëm dhe i gatshëm për fazën e vizualizimit (Faza III).
+Dataset-i është më i pastër, i qëndrueshëm dhe i gatshëm për fazën e III.
 
 
 
