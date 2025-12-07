@@ -79,77 +79,80 @@ Kjo thjeshton analizat që kërkojnë vlera të kategorizuara.
 
 ## Faza e dytë – Detektimi i përjashtuesve dhe mënjanimi
 
-Qëllimi i kësaj faze është identifikimi i vlerave jonormale (outliers), vlerësimi i ndikimit të tyre në cilësinë e të dhënave, si dhe mënjanimi i vlerave të pasakta që mund të deformojnë analizat e mëvonshme. Janë përdorur teknika statistikore si z-residuals dhe identifikimi i pragjeve për të shënuar dhe trajtuar përjashtuesit në mënyrë të kontrolluar.
+Qëllimi i kësaj faze ishte identifikimi i vlerave jonormale (outliers) në të dhënat e ndotjes ajrore, vlerësimi i ndikimit të tyre në cilësinë e të dhënave, si dhe mënjanimi i vlerave ekstreme që mund të ndikojnë në analizat e mëvonshme. Janë përdorur teknika të avancuara statistikore bazuar në zbërthimin STL dhe rezidualet robuste për të identifikuar dhe trajtuar outliers.
 
-### 1. Eksplorimi fillestar i të dhënave
+### 1. Përpunimi fillestar i të dhënave kohore
+Para detektimit të përjashtuesve, është bërë përpunimi specifik për seritë kohore:
 
-Para detektimit të përjashtuesve, u krye një inspektim fillestar i të dhënave:
-
-- U vëzhguan vlerat ekstreme të ndotësve
-
-- U kontrollua konsistenca e vlerave pas pastrimit të Fazës I
-
-- U identifikuan ditët me sjellje të dyshimtë që kërkonin hetim të mëtejshëm
-
-- U vlerësua rregullsia e serisë kohore për secilin ndotës
+- Të dhënat u organizuan sipas stacioneve dhe orëve
+- U verifikua vazhdimësia e të dhënave për secilin stacion
+- U vlerësuan modelet sezonale ditore të çdo ndotësi
 
 
-### 2. Llogaritja e Z-Residuals për identifikimin e përjashtuesve
+### 2. Zbërthimi STL dhe llogaritja e Z-Rezidualeve robuste
+Për secilin ndotës (PM10, PM2.5, NO2, O3) dhe për secilin stacion veç e veç, u aplikua metoda STL (Seasonal-Trend decomposition using LOESS):
 
-Për secilin ndotës (PM10, PM2.5, NO2, O3) u llogaritën z-residuals, të cilat matin devijimin e vlerës nga sjellja e pritur statistikore.
+Zbërthimi i serive kohore: 
+Çdo seri u nda në tre komponentë:
 
-- Vlerat shumë të mëdha → rritje jonormale
+- Komponenti sezonal (ciklet ditore 24-orëshe)
+- Komponenti trend (ndryshimet afatgjata)
+- Rezidualet (devijimet)
 
-- Vlerat shumë të ulëta → rënie jonormale
+Llogaritja e z-rezidualeve robuste: Në vend të z-score standardë (që përdorin mesataren dhe devijimin standard), u përdorën statistika robuste:
 
-Shërbejnë si bazë për detektimin e vlerave të dyshimta
+- Mesorja (median) në vend të mesatares
+- MAD (Median Absolute Deviation) në vend të devijimit standard
+- Faktori i shkallëzimit 1.4826 për krahasim me shpërndarjen normale
 
-Rezultati:
-Ditët me devijime ekstreme identifikohen qartë dhe kategorizohen si përjashtues të mundshëm.
+### 3. Vendosja e thresholds dhe gjetja e outliers
+Për shkak të natyrës së të dhënave të ndotjes ajrore (shpërndarje të paqëndrueshme), u përcaktuan pragje të larta për çdo ndotës:
 
-### 3. Vendosja e thresholds dhe shënimi i përjashtuesve
+- PM10: |Z| > 14.0
+- PM2.5: |Z| > 12.0
+- NO2: |Z| > 10.0
+- O3: |Z| > 8.0
 
-- U aplikua metoda two-sided thresholding, ku për çdo ndotës definohen kufij statistikorë:
+Këto pragje të larta janë të nevojshme sepse:
 
-- Vlerat jashtë intervalit të lejuar shënohen automatikisht si përjashtues
+Pas heqjes së modeleve sezonale dhe trendeve, rezidualet janë shumë më të vogla.
+Metoda jonë është më e ndjeshme se metodat standarde.
+Pragu |Z| > 15 në metodën tonë është i barabartë me |Z| > 3 në metodat tradicionale.
 
-- Janë krijuar kolonat _outlier_two_sided për çdo ndotës
+#### 3.1 Rezultatet e detektimit të outliers
 
-- Secila vlerë etiketohet True (përjashtues) ose False (normale)
+- Numri i outliers për çdo ndotës
 
+<img width="1724" height="638" alt="image" src="https://github.com/user-attachments/assets/8be18b80-5a82-4bed-9189-cb45017f884a" />
 
-### 4. Analiza e shpërndarjes së përjashtuesve
+- Mesataret e outliers dhe non-outliers
 
-- Është analizuar sasia dhe shpërndarja e përjashtuesve në nivel ndotësi dhe stacioni:
+<img width="1824" height="568" alt="image" src="https://github.com/user-attachments/assets/978a6d31-b368-4ac1-8267-7e1df0ae6879" />
 
-- Numri i përjashtuesve për çdo ndotës
+<img width="1838" height="222" alt="image" src="https://github.com/user-attachments/assets/2a931177-e807-4d1c-8a50-4e9f7272c009" />
 
-- Identifikimi i ditëve me devijime të shpeshta
+- Statistika të pastrimit të dataset-it (rows removed, columns kept)
 
-Krahasimi i stacioneve për të parë cilat kanë më shumë vlera jonormale
-
-<img width="1591" height="663" alt="image" src="https://github.com/user-attachments/assets/80f1a060-6c5d-4910-acca-94c51bde47bd" />
-
-
-### 5. Mënjanimi i zbulimeve jo të sakta
-
-Bazuar në përjashtuesit e identifikuar:
-
-- U shqyrtuan rreshtat me vlera të dyshimta
-
-<img width="591" height="484" alt="image" src="https://github.com/user-attachments/assets/9410f54a-08e7-4a2d-96c8-53afdcebc2e3" />
-
-- U larguan vlerat që përmbanin outlier
-
-
-<img width="1036" height="727" alt="image" src="https://github.com/user-attachments/assets/ba4f64a3-08b5-480b-a435-5a1be3a3dedb" />
-
-Dhe ne fund eshte paraqitur nje vizualizim që tregon shpërndarjen e përjashtuesve sipas ndotësve PM10, PM2.5, NO2 dhe O3. Vërehet se PM10 dhe PM2.5 kanë numër më të madh devijimesh krahasuar me NO2 dhe O3. Kjo ndihmon në identifikimin e ndotësve më problematikë.
+<img width="1838" height="222" alt="image" src="https://github.com/user-attachments/assets/26269541-31c3-4044-82ee-9625ab9afd85" />
 
 
-Rezultati:
-Dataset-i është më i pastër dhe i gatshëm për fazën e III.
+### 4. Analiza e karakteristikave unike të metodës
+Metoda e implementuar ka këto avantazhe unike:
 
+Stacion-për-stacion: Çdo stacion analizohet veçmas, duke respektuar niveli bazë unik të secilit
+Varësia nga ora e ditës: Merret parasysh se në orët e pikut të trafikut, ndotja është normalisht më e lartë
+Varësia nga stina: Merret parasysh ndikimi i stinëve në nivelet e ndotjes
+Detektim orar, jo ditor: Identifikohen luhatje të shkurtra 1-6 orëshe që mesatarja ditore mund t'i humbasë
+
+Shembull praktik: Një vlerë PM2.5 prej 30 μg/m³ mund të jetë:
+
+Përjashtues ekstrem në një stacion rural (normalja: 5-15 μg/m³)
+Vlerë normale në një stacion urban (normalja: 20-40 μg/m³)
+Vlerë e ulët në një zonë industriale (normalja: 30-60 μg/m³)
+
+<img width="1768" height="1294" alt="image" src="https://github.com/user-attachments/assets/8a2676b2-f40c-4339-a4ae-56e80f87dfb3" />
+
+Konkluzioni: Dataset-i i pastruar sic shihet ne foton me lart është tani më i besueshëm për analiza të mëtejshme, duke eliminuar ngjarjet ekstreme që nuk përfaqësojnë sjelljen tipike të secilit stacion, duke ruajtur në të njëjtën kohë vlerat e larta që janë pjesë e profileve normale të ndotjes së secilit lokacion. Kjo qasje e sofistikuar siguron që "outlier"-ët e vërtetë (ngjarjet jashtëzakonisht të pazakonta) ndahen nga vlerat e larta por të zakonshme për zonat e ndryshme.
 
 
 ## Authors
