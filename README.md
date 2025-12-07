@@ -152,7 +152,7 @@ Vlerë e ulët në një zonë industriale (normalja: 30-60 μg/m³)
 
 <img width="1768" height="1294" alt="image" src="https://github.com/user-attachments/assets/8a2676b2-f40c-4339-a4ae-56e80f87dfb3" />
 
-Konkluzioni: Dataset-i i pastruar sic shihet ne foton me lart është tani më i besueshëm për analiza të mëtejshme, duke eliminuar ngjarjet ekstreme që nuk përfaqësojnë sjelljen tipike të secilit stacion, duke ruajtur në të njëjtën kohë vlerat e larta që janë pjesë e profileve normale të ndotjes së secilit lokacion. Kjo qasje e sofistikuar siguron që "outlier"-ët e vërtetë (ngjarjet jashtëzakonisht të pazakonta) ndahen nga vlerat e larta por të zakonshme për zonat e ndryshme.
+Konkluzioni: Dataset-i i pastruar është tani më i besueshëm për analiza të mëtejshme, duke eliminuar ngjarjet ekstreme që nuk përfaqësojnë sjelljen tipike të secilit stacion, duke ruajtur në të njëjtën kohë vlerat e larta që janë pjesë e profileve normale të ndotjes së secilit lokacion. Kjo qasje e sofistikuar siguron që "outlier"-ët e vërtetë (ngjarjet jashtëzakonisht të pazakonta) ndahen nga vlerat e larta por të zakonshme për zonat e ndryshme.
 
 
 ## Authors
