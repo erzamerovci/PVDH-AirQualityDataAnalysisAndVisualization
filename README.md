@@ -81,7 +81,7 @@ Kjo thjeshton analizat që kërkojnë vlera të kategorizuara.
 
 Qëllimi i kësaj faze është identifikimi i vlerave jonormale (outliers), vlerësimi i ndikimit të tyre në cilësinë e të dhënave, si dhe mënjanimi i vlerave të pasakta që mund të deformojnë analizat e mëvonshme. Janë përdorur teknika statistikore si z-residuals dhe identifikimi i pragjeve për të shënuar dhe trajtuar përjashtuesit në mënyrë të kontrolluar.
 
-1. Eksplorimi fillestar i të dhënave
+### 1. Eksplorimi fillestar i të dhënave
 
 Para detektimit të përjashtuesve, u krye një inspektim fillestar i të dhënave:
 
@@ -94,7 +94,7 @@ Para detektimit të përjashtuesve, u krye një inspektim fillestar i të dhëna
 - U vlerësua rregullsia e serisë kohore për secilin ndotës
 
 
-2. Llogaritja e Z-Residuals për identifikimin e përjashtuesve
+### 2. Llogaritja e Z-Residuals për identifikimin e përjashtuesve
 
 Për secilin ndotës (PM10, PM2.5, NO2, O3) u llogaritën z-residuals, të cilat matin devijimin e vlerës nga sjellja e pritur statistikore.
 
@@ -107,7 +107,7 @@ Shërbejnë si bazë për detektimin e vlerave të dyshimta
 Rezultati:
 Ditët me devijime ekstreme identifikohen qartë dhe kategorizohen si përjashtues të mundshëm.
 
-3. Vendosja e thresholds dhe shënimi i përjashtuesve
+### 3. Vendosja e thresholds dhe shënimi i përjashtuesve
 
 - U aplikua metoda two-sided thresholding, ku për çdo ndotës definohen kufij statistikorë:
 
@@ -118,7 +118,7 @@ Ditët me devijime ekstreme identifikohen qartë dhe kategorizohen si përjashtu
 - Secila vlerë etiketohet True (përjashtues) ose False (normale)
 
 
-4. Analiza e shpërndarjes së përjashtuesve
+### 4. Analiza e shpërndarjes së përjashtuesve
 
 - Është analizuar sasia dhe shpërndarja e përjashtuesve në nivel ndotësi dhe stacioni:
 
@@ -131,24 +131,24 @@ Krahasimi i stacioneve për të parë cilat kanë më shumë vlera jonormale
 <img width="1591" height="663" alt="image" src="https://github.com/user-attachments/assets/80f1a060-6c5d-4910-acca-94c51bde47bd" />
 
 
-5. Mënjanimi i zbulimeve jo të sakta
+### 5. Mënjanimi i zbulimeve jo të sakta
 
 Bazuar në përjashtuesit e identifikuar:
 
-- U shqyrtuan ditët me vlera të dyshimta
-
-- U larguan vlerat e pasakta që komprometonin analizën
-
-Dataset-i u ristrukturua për të ruajtur integritetin e tij statistikor
+- U shqyrtuan rreshtat me vlera të dyshimta
 
 <img width="591" height="484" alt="image" src="https://github.com/user-attachments/assets/9410f54a-08e7-4a2d-96c8-53afdcebc2e3" />
 
+- U larguan vlerat që përmbanin outlier
+
+
 <img width="1036" height="727" alt="image" src="https://github.com/user-attachments/assets/ba4f64a3-08b5-480b-a435-5a1be3a3dedb" />
 
+Dhe ne fund eshte paraqitur nje vizualizim që tregon shpërndarjen e përjashtuesve sipas ndotësve PM10, PM2.5, NO2 dhe O3. Vërehet se PM10 dhe PM2.5 kanë numër më të madh devijimesh krahasuar me NO2 dhe O3. Kjo ndihmon në identifikimin e ndotësve më problematikë.
 
 
 Rezultati:
-Dataset-i është më i pastër, i qëndrueshëm dhe i gatshëm për fazën e III.
+Dataset-i është më i pastër dhe i gatshëm për fazën e III.
 
 
 
