@@ -108,7 +108,7 @@ Llogaritja e z-rezidualeve robuste: Në vend të z-score standardë (që përdor
 ### 3. Vendosja e thresholds dhe gjetja e outliers
 Për shkak të natyrës së të dhënave të ndotjes ajrore (shpërndarje të paqëndrueshme), u përcaktuan pragje të larta për çdo ndotës:
 
-- PM10: |Z| > 14.0
+- PM10: |Z| > 15.0
 - PM2.5: |Z| > 12.0
 - NO2: |Z| > 10.0
 - O3: |Z| > 8.0
