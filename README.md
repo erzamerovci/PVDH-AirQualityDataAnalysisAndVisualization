@@ -154,6 +154,167 @@ Vlerë e ulët në një zonë industriale (normalja: 30-60 μg/m³)
 
 Konkluzioni: Dataset-i i pastruar është tani më i besueshëm për analiza të mëtejshme, duke eliminuar ngjarjet ekstreme që nuk përfaqësojnë sjelljen tipike të secilit stacion, duke ruajtur në të njëjtën kohë vlerat e larta që janë pjesë e profileve normale të ndotjes së secilit lokacion. Kjo qasje e sofistikuar siguron që "outlier"-ët e vërtetë (ngjarjet jashtëzakonisht të pazakonta) ndahen nga vlerat e larta por të zakonshme për zonat e ndryshme.
 
+## Faza e tretë – Vizualizimi dhe analiza interaktive e të dhënave
+
+Kjo fazë përfaqëson fazën finale të projektit dhe fokusohet në vizualizimin interaktiv dhe interpretimin analitik të të dhënave të pastruara, me qëllim nxjerrjen e njohurive domethënëse mbi cilësinë e ajrit dhe faktorët që ndikojnë në të. Të dhënat e përpunuara gjatë fazës së parë dhe të dytë u shfrytëzuan për ndërtimin e një dashboard-i interaktiv, i cili mundëson eksplorim dinamik të të dhënave në dimensione kohore, hapësinore dhe sezonale.
+
+Vizualizimet janë ndërtuar duke përdorur mjete të avancuara për Business Intelligence (p.sh. Power BI), dhe janë të organizuara në tre blloqe kryesore analitike, siç përshkruhet më poshtë.
+
+### 1.  Analiza mujore dhe ditore sipas stacioneve
+
+<img width="1287" height="728" alt="Screenshot_2025-12-21_200034" src="https://github.com/user-attachments/assets/34c20876-b999-4266-ad4e-ef40e8a578cc" />
+
+
+#### Qëllimi:
+Ky vizualizim synon analizimin e cilësisë së ajrit në nivel mujor dhe ditor, duke ofruar mundësinë e krahasimit të një ose më shumë stacioneve monitoruese për ndotës të ndryshëm.
+
+#### Përshkrimi:
+
+- Grafiku kryesor paraqet mesataren ditore të PM2.5 (me mundësi kalimi në PM10) për një muaj të zgjedhur.
+
+- Filtrat interaktivë lejojnë:
+
+    - përzgjedhjen e muajit dhe intervalit kohor,
+
+    - përzgjedhjen e një ose disa stacioneve për krahasim.
+
+- Në anën e majtë shfaqen kartat përmbledhëse me vlerat mesatare mujore për:
+
+    - PM2.5
+
+    - PM10
+
+    - NO2
+
+    - O3
+
+- Grafiku horizontal në të djathtë paraqet krahasimin e ndotësve sipas stacioneve të zgjedhura.
+
+#### Vlera analitike:
+Ky vizualizim mundëson identifikimin e:
+
+- ndryshimeve ditore të ndotjes brenda një muaji,
+
+- dallimeve mes stacioneve urbane dhe periferike,
+
+- periudhave me rritje apo ulje të theksuar të ndotjes.
+
+### 2. Analiza sezonale dhe krahasimi mes stacioneve
+
+<img width="1254" height="688" alt="Screenshot_2025-12-21_200336" src="https://github.com/user-attachments/assets/555950a8-1d6a-4f16-9c57-151b133fa91e" />
+
+
+#### Qëllimi:
+Ky vizualizim fokusohet në analizimin e ndryshimeve sezonale të ndotësve të ajrit, duke krahasuar stacionet e përzgjedhura përgjatë katër stinëve të vitit.
+
+#### Përshkrimi:
+
+- Grafikët me shtylla janë të ndarë sipas stinëve:
+
+    - Dimër
+
+    - Pranverë
+
+    - Verë
+
+    - Vjeshtë
+
+- Për secilën stinë paraqiten vlerat mesatare të:
+
+    - PM2.5
+
+    - PM10
+
+    - NO2
+
+    - O3
+
+- Donut chart ofron një pamje përmbledhëse të përqindjes së ndotësve sipas stinëve, duke lehtësuar krahasimin vizual.
+
+#### Vlera analitike:
+
+- Evidentohet rritja e O3 gjatë stinës së verës, si pasojë e temperaturave më të larta dhe rrezatimit diellor.
+
+- PM2.5 dhe PM10 shfaqin vlera më të larta gjatë dimrit dhe vjeshtës, të lidhura me ngrohjen dhe kushtet atmosferike.
+
+- Vizualizimi ndihmon në kuptimin e modeleve sezonale të ndotjes.
+
+### 3. Ndërlidhja mes O3 dhe temperaturës në kohë
+
+<img width="1249" height="680" alt="Screenshot_2025-12-21_200434" src="https://github.com/user-attachments/assets/c0abd24e-b705-4e71-87ac-959fad830ea1" />
+
+
+#### Qëllimi:
+Ky vizualizim analizon marrëdhënien ndërmjet temperaturës mesatare dhe nivelit të ozonit (O3), si dhe evoluimin e tyre në kohë.
+
+#### Përshkrimi:
+
+- Scatter plot paraqet:
+
+    - boshtin horizontal: temperaturën mesatare,
+
+    - boshtin vertikal: vlerën mesatare të O3.
+
+- Pikat janë të ngjyrosura sipas stinëve, duke mundësuar dallimin sezonal.
+
+- Slider-i kohor lejon eksplorimin e të dhënave në bazë mujore dhe shumëvjeçare.
+
+#### Vlera analitike:
+
+- Vërehet një korrelacion pozitiv mes temperaturës dhe nivelit të O3.
+
+- Me kalimin e viteve, vlerat e O3 shfaqin një trend rritës, veçanërisht gjatë muajve të verës.
+
+- Ky trend sugjeron ndikimin e ndryshimeve klimatike dhe ngrohjes globale në rritjen e ozonit në shtresën e poshtme të atmosferës.
+
+### 4. Vizualizimi i katërt – Harta gjeografike e stacioneve monitoruese
+
+<img width="1232" height="670" alt="Screenshot_2025-12-21_200458" src="https://github.com/user-attachments/assets/b688492c-ca31-4732-a569-5b093a90db1e" />
+
+
+#### Qëllimi:
+Ky vizualizim ka për qëllim paraqitjen e shpërndarjes gjeografike të stacioneve monitoruese të cilësisë së ajrit, duke ofruar një kontekst hapësinor për analizat e realizuara në vizualizimet e tjera.
+
+#### Përshkrimi:
+
+- Vizualizimi paraqitet në formën e një harte interaktive, ku çdo pikë përfaqëson një stacion matës.
+
+- Pozicioni i stacioneve bazohet në koordinatat gjeografike (latitude dhe longitude) të dataset-it.
+
+- Harta mundëson:
+
+    - identifikimin vizual të lokacionit të secilit stacion,
+
+    - dallimin mes stacioneve urbane, periferike dhe rurale,
+
+    - përzgjedhjen e stacioneve për analiza të mëtejshme në dashboard.
+
+#### Vlera analitike:
+
+- Ofron një pasqyrë hapësinore të rrjetit të monitorimit të cilësisë së ajrit.
+
+- Ndihmon në interpretimin e dallimeve mes stacioneve duke i lidhur ato me:
+
+    - dendësinë urbane,
+
+    - afërsinë me trafikun apo zonat industriale,
+
+    - karakteristikat gjeografike të zonës.
+
+- Shërben si element orientues për përdoruesin dhe si pikënisje për analizat kohore dhe sezonale.
+
+### Përfundim i Fazës së tretë
+
+Faza e tretë konfirmon rëndësinë e vizualizimit interaktiv si mjet analitik për:
+
+- kuptimin e sjelljes së ndotësve në kohë dhe hapësirë,
+
+- identifikimin e modeleve sezonale,
+
+- analizimin e lidhjes mes faktorëve klimatikë dhe cilësisë së ajrit.
+
+Kombinimi i analizës statistikore nga fazat paraprake me vizualizime interaktive siguron një qasjë të plotë dhe të besueshme analitike, duke e bërë dataset-in të përshtatshëm për studime të avancuara dhe vendimmarrje të bazuar në të dhëna.
+
 
 ## Authors
 - *Erza Merovci*
