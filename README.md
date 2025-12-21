@@ -241,6 +241,9 @@ Ky vizualizim fokusohet në analizimin e ndryshimeve sezonale të ndotësve të 
 
 ### 3. Ndërlidhja mes O3 dhe temperaturës në kohë
 
+<img width="1446" height="788" alt="image" src="https://github.com/user-attachments/assets/3d2694eb-e62b-49ab-9227-224bfae7261c" />
+
+
 <img width="1249" height="680" alt="Screenshot_2025-12-21_200434" src="https://github.com/user-attachments/assets/c0abd24e-b705-4e71-87ac-959fad830ea1" />
 
 
