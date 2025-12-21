@@ -267,7 +267,7 @@ Ky vizualizim analizon marrëdhënien ndërmjet temperaturës mesatare dhe nivel
 
 - Ky trend sugjeron ndikimin e ndryshimeve klimatike dhe ngrohjes globale në rritjen e ozonit në shtresën e poshtme të atmosferës.
 
-### 4. Vizualizimi i katërt – Harta gjeografike e stacioneve monitoruese
+### 4. Harta gjeografike e stacioneve monitoruese
 
 <img width="1232" height="670" alt="Screenshot_2025-12-21_200458" src="https://github.com/user-attachments/assets/b688492c-ca31-4732-a569-5b093a90db1e" />
 
